@@ -13,11 +13,20 @@
 }
 
 .box {
-  width: 25rem;
-  height: 25rem;
+  width: 15rem;
+  height: 15rem;
   background-color: aqua;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.boxItem {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: white;
+  padding: 2 rem;
+  list-style: none;
+  margin: 0.5rem;
 }
