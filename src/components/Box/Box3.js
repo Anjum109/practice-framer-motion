@@ -1,31 +1,19 @@
-import React, { useState } from 'react';
-import { motion } from "framer-motion"
-const Box3 = () => {
+import React from 'react';
+import { motion } from 'framer-motion';
 
-    // const boxVariant = {
-    //     lion: {
-    //         x: 100,
-    //         scale: 1.5,
-    //         backgroundColor: "yellow"
-    //     },
-    //     elephant: {
-    //         x: 1000,
-    //         scale: 0.3,
-    //         backgroundColor: "green"
-    //     }
-    // }
+const Box3 = () => {
     const boxVariant = {
         hidden: {
-            x: "-100vw"
+            x: '-100vw'
         },
         visible: {
             x: 0,
             transition: {
                 delay: 0.5,
-                when: "beforeChildren"
+                when: 'beforeChildren'
             }
         }
-    }
+    };
 
     const listVariant = {
         hidden: {
@@ -34,34 +22,31 @@ const Box3 = () => {
         },
         visible: {
             x: 0,
-            opacity: 1,
-            staggerChildren: 0.2
+            opacity: 1
         }
-    }
+    };
 
     return (
         <div className='box-container'>
-
             <motion.div
                 className='box'
                 variants={boxVariant}
-                animate="visible"
-                initial="hidden"
-            // variants={boxVariant}
-            // initial="lion"
-            // animate="elephant"
+                animate='visible'
+                initial='hidden'
             >
-                {[1, 2, 3].map(box => {
-                    return (<motion.li className='boxItem'
-                        variants={listVariant}
-                        animate="visible"
-                        initial="hidden">
-
-                    </motion.li>)
+                {[1, 2, 3].map((box, index) => {
+                    return (
+                        <motion.li
+                            className='boxItem'
+                            key={box}
+                            variants={listVariant}
+                            transition={{ delay: index * 0.2 }} // Adjust the delay as needed
+                        >
+                            {/* Add your content here */}
+                        </motion.li>
+                    );
                 })}
             </motion.div>
-
-
         </div>
     );
 };
